@@ -1,7 +1,10 @@
 const data = require('../data/zoo_data');
 
-function getSpeciesByIds(ids) {
+// método includes https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+function getSpeciesByIds(...ids) {
   // seu código aqui
+  return data.species.filter((specie) => ids.includes(specie.id));
 }
 
+console.log(getSpeciesByIds());
 module.exports = getSpeciesByIds;
