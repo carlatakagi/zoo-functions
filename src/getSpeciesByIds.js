@@ -6,5 +6,4 @@ function getSpeciesByIds(...ids) {
   return data.species.filter((specie) => ids.includes(specie.id));
 }
 
-console.log(getSpeciesByIds());
 module.exports = getSpeciesByIds;

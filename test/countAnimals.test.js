@@ -14,7 +14,7 @@ describe('5 - Crie uma função que realiza a contagem dos animais de cada espé
       'giraffes': 6,
     };
     const actual = countAnimals();
-
+    console.log(actual);
     expect(actual).toStrictEqual(expected);
   });
 
