@@ -2,7 +2,6 @@ const data = require('../data/zoo_data');
 
 function countAnimals(animal) {
   // seu código aqui - Esta função é responsável por contabilizar a quantidade de animais de cada espécie.
-  // retornar um objeto com todas as especies e sua quantidade - chave e valor
   if (!animal) {
     return data.species.reduce((specieObj, specie) => {
       const specieObjCopy = specieObj;
@@ -11,11 +10,14 @@ function countAnimals(animal) {
     }, {});
   }
 
-  // retorna um número, a quantidade de animal no zoológico;
-}
+  // { specie: 'penguins' } recebendo como parâmetro um objeto com a chave 'specie', retorna um número, a quantidade de animais daquela espécie - retornar a quantidade de animais da especie - specie.residents.lenght
+  const verifySpecie = data.species.find((specie) => animal.specie === specie.name);
 
-console.log(countAnimals());
-console.log(countAnimals({ specie: 'penguins' }));
-console.log(countAnimals({ specie: 'bears', sex: 'female' }));
+  if (animal.sex) {
+    return verifySpecie.residents.filter((specie) => specie.sex === animal.sex).length;
+  }
+
+  return verifySpecie.residents.length;
+}
 
 module.exports = countAnimals;
