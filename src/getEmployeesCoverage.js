@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 const data = require('../data/zoo_data');
 
 function getLocations(responsibleFor) {
@@ -21,22 +20,24 @@ function getName(responsibleFor) {
   }, []);
 }
 
+function getAll(employees) {
+  return data.employees.map((employee) => ({
+    id: employee.id,
+    fullName: `${employee.firstName} ${employee.lastName}`,
+    species: getName(employee.responsibleFor),
+    locations: getLocations(employee.responsibleFor),
+  }));
+}
+
 function getEmployeesCoverage(options) {
   if (!options) {
-    return data.employees.map((employee) => ({
-      id: employee.id,
-      fullName: `${employee.firstName} ${employee.lastName}`,
-      species: getName(employee.responsibleFor),
-      locations: getLocations(employee.responsibleFor),
-    }));
+    return getAll();
   }
 
   const findEmployee = data.employees.find((employee) => employee.id === options.id
     || employee.firstName === options.name || employee.lastName === options.name);
 
-  if (!findEmployee) {
-    throw new Error('Informações inválidas');
-  }
+  if (!findEmployee) throw new Error('Informações inválidas');
 
   return {
     id: findEmployee.id,
