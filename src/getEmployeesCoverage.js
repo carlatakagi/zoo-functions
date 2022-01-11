@@ -1,8 +1,6 @@
 const data = require('../data/zoo_data');
 
 function getLocations(responsibleFor) {
-  /* return data.species.filter((specie) => responsibleFor.includes(specie.id))
-    .map((specie) => specie.location); */
   return data.species.reduce((listLocation, currentSpecies) => {
     if (responsibleFor.includes(currentSpecies.id)) {
       listLocation.push(currentSpecies.location);
