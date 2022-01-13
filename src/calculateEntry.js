@@ -40,6 +40,4 @@ function calculateEntry(entrants) {
   return priceChild + priceAdult + priceSenior;
 }
 
-console.log(calculateEntry(entradas));
-
 module.exports = { calculateEntry, countEntrants };
