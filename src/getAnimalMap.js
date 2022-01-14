@@ -1,7 +1,7 @@
 const data = require('../data/zoo_data');
 
 function getAnimalMap(options) {
-  const { sex } = options || {};
+  /* const { sex } = options || {};
 
   return data.species.reduce((speciesObj, specie) => {
     const speciesObjCopy = speciesObj;
@@ -17,7 +17,7 @@ function getAnimalMap(options) {
     }
 
     return speciesObjCopy;
-  }, {});
+  }, {}); */
 }
 
 console.log(getAnimalMap({ sex: 'female' }));
